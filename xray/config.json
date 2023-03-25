@@ -11,7 +11,8 @@
           {
             "id": "xxx",
             "level": 0,
-            "email": "your-email@example.com"
+            "email": "your-email@example.com",
+            "flow": "xtls-rprx-vision"
           }
         ],
         "decryption": "none",
