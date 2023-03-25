@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  caddy:
+    image: caddy
+    restart: unless-stopped
+    volumes:
+      - ./caddy:/etc/caddy
+      - ./ssl:/var/lib/caddy/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory
+
+  xray:
+    image: teddysun/xray
+    restart: unless-stopped
+    volumes:
+      - ./xray:/etc/xray
+      - ./ssl:/ssl
+    ports:
+      - 9000:9000
+    depends_on:
+      - caddy
