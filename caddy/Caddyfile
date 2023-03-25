@@ -5,3 +5,7 @@
 xxx {
     respond "Hello World"
 }
+
+:1234 {
+    respond 400 "Bad request"
+}

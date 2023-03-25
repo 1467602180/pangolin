@@ -8,6 +8,6 @@
   "ssl": {
     "cert": "/ssl/xxx/xxx.crt",
     "key": "/ssl/xxx/xxx.key",
-    "fallback_port": 80
+    "fallback_port": 1234
   }
 }
