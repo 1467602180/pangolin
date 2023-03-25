@@ -4,20 +4,17 @@ services:
   caddy:
     image: caddy
     restart: unless-stopped
-    ports:
-      - 80:80
-      - 443:443
+    network_mode: host
     volumes:
       - ./caddy:/etc/caddy
-      - ./ssl:/var/lib/caddy/.local/share/caddy/certificates/acme-v02.api.letsencrypt.org-directory
+      - ./ssl:/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory
 
-  xray:
-    image: teddysun/xray
+  trojan-go:
+    image: p4gefau1t/trojan-go
     restart: unless-stopped
+    network_mode: host
     volumes:
-      - ./xray:/etc/xray
+      - ./trojan-go:/etc/trojan-go
       - ./ssl:/ssl
-    ports:
-      - 9000:9000
     depends_on:
       - caddy
